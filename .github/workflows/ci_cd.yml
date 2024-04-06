@@ -7,6 +7,10 @@ on:
       - 'main'
     tags-ignore:
       - '*.*'
+  pull_request:
+    branches:
+      - 'main'
+  workflow_dispatch:
 
 jobs:
 
@@ -37,10 +41,11 @@ jobs:
           cd GenericApp
           gradle build
 
-      - name: Upload APKs
+      - name: Upload build outputs
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: apks
+          name: build-outputs
           path: |
-            **/*.apk
+            **/build/outputs/**/*.aar
+            **/build/outputs/**/*.apk

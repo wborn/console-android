@@ -21,8 +21,7 @@ private const val ARG_SHOW_REALM_TEXT_INPUT = "showRealmTextInput"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [AppSelectionFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Use the [AppSelectionFragment.newInstance] factory method to create an instance of this fragment.
  */
 class AppSelectionFragment : Fragment() {
     private lateinit var binding: FragmentAppSelectionBinding

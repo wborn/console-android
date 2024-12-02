@@ -14,7 +14,33 @@ buildscript {
     }
 }
 
+plugins {
+    id 'pl.allegro.tech.build.axion-release' version '1.18.16'
+}
+
+
+scmVersion {
+    releaseOnlyOnReleaseBranches = true
+    releaseBranchNames = ['main']
+    unshallowRepoOnCI.set(true)
+    versionCreator('simple')
+    versionIncrementer('incrementMinor')
+    repository {
+        directory.set(project.rootProject.file('../').absolutePath)
+        remote.set("wborn")
+    }
+    tag {
+        prefix.set("")
+        initialVersion({config, position -> '1.2.0'})
+    }
+}
+
+version = scmVersion.version
+
+println "Build version: ${version}"
+
 allprojects {
+    project.version = scmVersion.version
     repositories {
         google()
         mavenCentral()

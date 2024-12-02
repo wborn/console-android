@@ -65,9 +65,6 @@ jobs:
           command="gradle assemble publish -p GenericApp"
           command="$command -PsigningKey=$MAVEN_SIGNING_KEY -PsigningPassword=$MAVEN_SIGNING_PASSWORD -PpublishUsername=$MAVEN_USERNAME -PpublishPassword=$MAVEN_PASSWORD"
           command="$command -PkeystoreKeyAlias=$KEYSTORE_KEY_ALIAS -PkeystoreKeyPassword=$KEYSTORE_KEY_PASSWORD -PkeystoreFile=$PWD/keystore -PkeystorePassword=$KEYSTORE_PASSWORD"
-          if [ "$EVENT_NAME" == "release" ]; then
-            command="$command -PappVersion=$MAVEN_TAG -PorlibVersion=$MAVEN_TAG"
-          fi
           $command
         env:
           EVENT_NAME: ${{ github.event_name }}

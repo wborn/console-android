@@ -43,7 +43,6 @@ jobs:
       - name: Run release
         id: release
         run: |
-          cd GenericApp
           if [ -n "$VERSION_OVERRIDE" ]; then
             gradle release -Prelease.forceVersion=${VERSION_OVERRIDE}
           else

@@ -43,7 +43,7 @@ jobs:
       - name: Check if main repo
         id: is_main_repo
         run: |
-          if [ $GITHUB_REPOSITORY == 'openremote/console-android' ]; then
+          if [ $GITHUB_REPOSITORY == 'wborn/console-android' ]; then
             echo "value=true" >> $GITHUB_OUTPUT
           fi
 
